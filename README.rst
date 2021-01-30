@@ -18,7 +18,7 @@ geemap
         :target: https://pepy.tech/project/geemap
 
 .. image:: https://github.com/giswqs/geemap/workflows/docs/badge.svg
-        :target: https://giswqs.github.io/geemap
+        :target: https://geemap.org
 
 .. image:: https://img.shields.io/badge/YouTube-Channel-red   
         :target: https://www.youtube.com/c/QiushengWu
@@ -35,12 +35,10 @@ geemap
 .. image:: https://joss.theoj.org/papers/91af8757c56e3fed2535fcd165137116/status.svg
         :target: https://joss.theoj.org/papers/91af8757c56e3fed2535fcd165137116
 
-Lead authors: Dr. Qiusheng Wu (https://wetlands.io)
-
 **A Python package for interactive mapping with Google Earth Engine, ipyleaflet, and ipywidgets.**
 
 * GitHub repo: https://github.com/giswqs/geemap
-* Documentation: https://geemap.readthedocs.io
+* Documentation: https://geemap.org
 * PyPI: https://pypi.org/project/geemap/
 * Conda-forge: https://anaconda.org/conda-forge/geemap
 * 360+ GEE notebook examples: https://github.com/giswqs/earthengine-py-notebooks
@@ -73,7 +71,7 @@ analyze and visualize Earth Engine datasets interactively within a Jupyter-based
 **geemap** is intended for students and researchers, who would like to utilize the Python ecosystem of diverse libraries and tools to explore Google Earth Engine. It is also designed for existing GEE users who would like to transition from the GEE JavaScript API to Python API. The automated JavaScript-to-Python `conversion module <https://github.com/giswqs/geemap/blob/master/geemap/conversion.py>`__ of the **geemap** package
 can greatly reduce the time needed to convert existing GEE JavaScripts to Python scripts and Jupyter notebooks.
 
-For video tutorials and notebook examples, please visit `<https://github.com/giswqs/geemap/tree/master/examples>`__. For complete documentation on geemap modules and methods, please visit `<https://geemap.readthedocs.io/en/latest/source/geemap.html>`_.
+For video tutorials and notebook examples, please visit `<https://github.com/giswqs/geemap/tree/master/examples>`__. For complete documentation on geemap modules and methods, please visit `<https://geemap.org/geemap>`_.
 
 If you find geemap useful in your research, please consider citing the following papers to support my work. Thank you for your support.
 
@@ -134,7 +132,7 @@ To use **geemap**, you must first `sign up <https://earthengine.google.com/signu
 
 .. code:: python
 
-  conda create -n gee python=3.7
+  conda create -n gee python
   conda activate gee
   conda install mamba -c conda-forge
   mamba install geemap -c conda-forge 
@@ -174,8 +172,13 @@ To install the development version from GitHub directly within Jupyter notebook 
   import geemap
   geemap.update_package()
   
+To use geemap in a Docker container, check out the following docker containers with geemap installed.
 
-To use geemap in a Docker container, check out this `page <https://hub.docker.com/r/bkavlak/geemap>`__.
+*   `gee-community/ee-jupyter-contrib <https://github.com/gee-community/ee-jupyter-contrib/tree/master/docker/gcp_ai_deep_learning_platform>`__
+*   `bkavlak/geemap <https://hub.docker.com/r/bkavlak/geemap>`__
+*   `giswqs/geemap <https://hub.docker.com/r/giswqs/geemap>`__
+
+To use geemap in a Docker container, check out `ee-jupyter-contrib <https://github.com/gee-community/ee-jupyter-contrib/tree/master/docker/gcp_ai_deep_learning_platform>`__ or this `page <https://hub.docker.com/r/bkavlak/geemap>`__.
 
 
 Usage
@@ -471,6 +474,20 @@ To extract pixel values based on user-drawn geometries:
   geemap.extract_values_to_points(out_shp)
 
 
+To load a Cloud Optimized GeoTIFF as an ee.Image:
+
+.. code:: python
+
+  image = geemap.load_GeoTIFF(URL)
+
+
+To load a list of Cloud Optimized GeoTIFFs as an ee.ImageCollection:
+
+.. code:: python
+
+  collection = geemap.load_GeoTIFFs(URLs)
+
+
 Examples
 --------
 
@@ -586,7 +603,6 @@ Dependencies
 
 * `bqplot <https://github.com/bloomberg/bqplot>`__
 * `colour <https://github.com/vaab/colour>`__
-* `dulwich <https://github.com/dulwich/dulwich>`__
 * `earthengine-api <https://github.com/google/earthengine-api>`__
 * `folium <https://github.com/python-visualization/folium>`__
 * `geeadd <https://github.com/samapriya/gee_asset_manager_addon>`__

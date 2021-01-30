@@ -1,9 +1,28 @@
 """Top-level package for geemap."""
 
 __author__ = """Qiusheng Wu"""
-__email__ = 'giswqs@gmail.com'
-__version__ = '0.7.12'
+__email__ = "giswqs@gmail.com"
+__version__ = "0.8.8"
 
-from .geemap import *
-from .basemaps import ee_basemaps
-from .legends import builtin_legends
+
+def in_colab_shell():
+    """Tests if the code is being executed within Google Colab."""
+    import sys
+
+    if "google.colab" in sys.modules:
+        return True
+    else:
+        return False
+
+    # try:
+    #     import google.colab
+
+    #     return True
+    # except ImportError:
+    #     return False
+
+
+if in_colab_shell():
+    from .eefolium import *
+else:
+    from .geemap import *
